@@ -8,8 +8,7 @@ Usage
 
     vcfToPlink file.vcf pedigreeFile plink
     
-file.vcf is the vcf file
-pedigree file is a comma delimited file with a header and columns
+file.vcf is the vcf file,  pedigree file is a csv with a header and columns
 FID, IID, FA, MO, SEX, STATUS where
 
 * FID is the family id
