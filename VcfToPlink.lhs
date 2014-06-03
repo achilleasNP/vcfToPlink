@@ -1,9 +1,12 @@
 \usepackage{times}
+\usepackage{hyperref}
  
 This code formats a vcf file to plink format. The input is the 
 vcf file and a ile with the pedigree information.
 
 \section{VCF file description}
+The following description was taken from 
+\url{http://www.1000genomes.org/wiki/Analysis/Variant\%20Call\%20Format/vcf-variant-call-format-version-41}
 
 \subsection{Meta information lines}
 The lines of the form 
@@ -26,9 +29,16 @@ The header line names the 8 fixed, mandatory columns. These columns are as follo
 
 If genotype data is present in the file, these are followed by a FORMAT column header, then an arbitrary number of sample IDs. The header line is tab-delimited.
 \subsection{data lines}
+Each of the following line is a dataline.
 
 
- 
+\section{Program logic}
+The program takes two arguments the vcf filename (unzipped)
+and the output name file.
+Foreach line we take the ref and the lst of alternative alleles
+and combine it to an alleleLst.
+We read the FORMAT string and then for each individual we translate the genotypes of the form "#/#" or "#|#" to the genotype
+alleleLst[#] alleleLst[#] or to 0 0 if any of the # is missing i.e. is  "." 
 \begin{code}
 module VcfToPlink
 

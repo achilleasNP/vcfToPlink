@@ -17,5 +17,5 @@ cabal-version:       >=1.8
 executable vcfToPlink
   main-is:             vcfToPlink.hs 
   other-modules:       VcfToPlink       
-  build-depends:       base ==4.6.*, bytestring ==0.10.*
+  build-depends:       base ==4.6.*, bytestring ==0.10.*, containers
   ghc-options:         -O2 -threaded -rtsopts
